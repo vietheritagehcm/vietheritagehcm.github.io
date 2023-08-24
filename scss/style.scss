@@ -1,0 +1,13 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 96%;
+    margin: 0 auto;
+}
