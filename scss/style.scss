@@ -1,10 +1,35 @@
-@import "../node_modules/bootstrap/scss/bootstrap.scss";
+$primary: #000;
+
+$body-bg: #EFDFBB;
+$body-color: #000;
+
+$body-secondary-bg: #C77C49;
+$body-secondary-color: #1F1F1F;
+
+$body-tertiary-bg: #C89979;
+$body-tertiary-color: #2C2C2C;
+
+$link-decoration: none;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$h1-font-size: $font-size-base * 9;
+$h2-font-size: $font-size-base * 7;
+$h3-font-size: $font-size-base * 5;
+$h4-font-size: $font-size-base * 4;
+$h5-font-size: $font-size-base * 2;
+$h6-font-size: $font-size-base * 1.625;
+
+
+
 
 * {
     margin: 0;
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    font-size: $font-size-base;
+    font-family: 'Courier New', sans-serif;
 }
 
 .container {
