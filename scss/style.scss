@@ -1,38 +1,125 @@
-$primary: #000;
+//Fonts import {
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,600&display=swap");
+@font-face {
+    font-family: Bernard;
+    src: url("../fonts/BERNHC.TTF");
+}
+//}
 
-$body-bg: #EFDFBB;
+//Default bootstrap variable modify {
+$primary: #c77c49;
+$secondary: #efdfbb;
+$danger: #6d1515;
+
+$body-bg: #efdfbb;
 $body-color: #000;
 
-$body-secondary-bg: #C77C49;
-$body-secondary-color: #1F1F1F;
+$body-secondary-bg: #c77c49;
+$body-secondary-color: #1f1f1f;
 
-$body-tertiary-bg: #C89979;
-$body-tertiary-color: #2C2C2C;
+$body-tertiary-bg: #c89979;
+$body-tertiary-color: #2c2c2c;
 
 $link-decoration: none;
 
+$font-family-base: "Roboto Serif", serif;
+
+$navbar-brand-font-size: 2.5rem;
+$nav-link-font-size: 1.5rem;
+
+$link-color: $body-color;
+$link-shade-percentage: 40%;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-$h1-font-size: $font-size-base * 9;
-$h2-font-size: $font-size-base * 7;
-$h3-font-size: $font-size-base * 5;
-$h4-font-size: $font-size-base * 4;
-$h5-font-size: $font-size-base * 2;
-$h6-font-size: $font-size-base * 1.625;
+$h1-font-size: 7rem;
+$h2-font-size: 6rem;
+$h3-font-size: 5rem;
+$h4-font-size: 4rem;
+$h5-font-size: 2rem;
+$h6-font-size: 1.625rem;
+//}
 
+//Mixix {
+@mixin potrait_phones {@include media-breakpoint-down(sm){@content};}
+@mixin landscape_phones {@include media-breakpoint-down(md){@content};}
+@mixin medium_devices {@include media-breakpoint-down(lg){@content};}
+@mixin large_devices {@include media-breakpoint-down(xl){@content};}
+@mixin extra_large_devices {@include media-breakpoint-down(xxl){@content};}
+//}
 
+//Custom style {
 
-
-* {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
-    font-size: $font-size-base;
-    font-family: 'Courier New', sans-serif;
+ul li {
+    list-style-type: none;
 }
 
-.container {
-    width: 96%;
-    margin: 0 auto;
+header {
+    background-color: $body-secondary-bg;
+
+    .container {
+        max-width: 96dvw;
+        height: 100%;
+
+        #logo {
+            font-family: Bernard, sans-serif;
+
+            a {
+                * {
+                    margin: 0;
+                    padding: 0;
+                    line-height: 100%;
+                }
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        #grid-placeholder {
+            @include medium_devices() {
+                display: block;
+            }
+            display: none;
+        }
+
+        nav {
+            #main_nav {
+                li {
+                    a {
+                        &::after {
+                            opacity: 0;
+                            content: "";
+                            display: block;
+                            height: 0.5rem;
+                            width: 100%;
+                            background-color: $danger;
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            transition: opacity 0.3s ease;
+                        }
+
+                        &:hover::after {
+                            opacity: 1;
+                        }
+                    }
+                    position: relative;
+                }
+            }
+
+            #lang_dropdown {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    font-size: $nav-link-font-size;
+                }
+            }
+        }
+    }
 }
+//}
