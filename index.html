@@ -1,59 +1,117 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Viet Heritage
-        </title>
+<html lang="vi">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="A website for foreign tourists who want to visit Vietnamese Heritages">
-        <meta name="keywords" content="vietnam, history, tour, heritage">
-        <meta name="author" content="BlackJackMC">
+<head>
+    <title>
+        Viet Heritage
+    </title>
 
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A website for foreign tourists who want to visit Vietnamese Heritages">
+    <meta name="keywords" content="vietnam, history, tour, heritage">
+    <meta name="author" content="BlackJackMC">
 
-    <body>
-        <header class="position-sticky">
-            <div class="container">
-                <div class="row navbar navbar-expand-lg">
-                    <button class="navbar-toggler col-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                    <div class="col-lg-2 col-8" id="logo">
-                        <div class="logo navbar-brand text-center text-uppercase">
-                            <a class="text-danger" href="./index.html">
-                                <p>viet</p>
-                                <p>heritage</p>
-                            </a>
-                        </div>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="fixed-top">
+        <div class="container inner">
+            <nav class="row navbar navbar-expand-lg">
+
+                <div class="col-2 grid-placeholder">
+                    <button class="navbar-toggler w-auto" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="material-symbols-sharp" label="open" role="icon">menu</span>
+                        <span class="material-symbols-sharp" label="close" role="icon">close</span>
+                    </button>
+                </div>
+                <div class="col-lg-2 col-8" id="logo">
+                    <div class="logo navbar-brand text-center me-0 text-uppercase">
+                        <a class="text-danger" href="./index.html">
+                            <p>viet</p>
+                            <p>heritage</p>
+                        </a>
                     </div>
-                    <div class="col-2" id="grid-placeholder"></div>
-                    <nav class="col-lg-10 collapse navbar-collapse" id="navbar_content">
-                        <div class="row w-100">
-                            <div class="col-lg-10 col-md-12" id="main_nav">
-                                <ul class="navbar-nav w-100 justify-content-around align-items-center text-uppercase">
-                                    <li class="nav-item"><a class="nav-link" href="#info" id="info">giới thiệu</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="./heritage" id="heritage">di tích</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="./feedback" id="feedback">góp ý</a></li>
+                </div>
+                <div class="col-2 grid-placeholder"></div>
+
+                <div class="col-lg-10 collapse navbar-collapse" id="navbar-content">
+                    <div class="row w-100 m-0">
+                        <div class="col-lg-10 col-md-12" id="main-nav">
+                            <ul class="navbar-nav w-100 justify-content-around align-items-center text-uppercase">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#introduction" id="info">
+                                        <span class="material-symbols-sharp" role="icon">home</span>giới thiệu
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./heritage" id="heritage">
+                                        <span class="material-symbols-sharp" role="icon">import_contacts</span>di tích
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./feedback" id="feedback">
+                                        <span class="material-symbols-sharp" role="icon">rate_review</span>góp ý
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2" id="lang_dropdown">
+                            <div class="dropdown-center">
+                                <a class="btn border-0 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    VN
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">EN</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2" id="lang_dropdown">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">VN</a>
-                                  
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">EN</a></li>
-                                    </ul>
-                                  </div>
-                            </div>
                         </div>
-                    </nav>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="display-2" id="hero-title">thành phố hồ chí minh</div>
+        </section>
+
+        <section id="introduction">
+            <div class="container inner">
+                <div class="row">
+                    <div class="col-7">
+                        <div id="introduction-title">
+                            <div class="display-1 text-uppercase">thành phố</div>
+                            <div class="display-1 text-uppercase">hồ chí minh</div>
+                        </div>
+                        <div class="box" id="introduction-content">
+                            <div class="box-content" aria-expanded="false">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo beatae reiciendis optio,
+                                doloribus, ut
+                                animi blanditiis eius culpa nulla impedit nobis quis maxime consequatur recusandae
+                                dolorum debitis.
+                                Distinctio, tempore numquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Architecto eos ratione quos repellendus omnis necessitatibus, distinctio rerum voluptas
+                                nisi placeat porro perferendis ut corrupti, officia sunt maiores quibusdam doloremque
+                                nulla?
+                            </div>
+                            <a type="button" aria-controls="box-content">xem thêm</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
+    </main>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-        <script src="js/index.js" type="text/javascript"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+</body>
+
 </html>
