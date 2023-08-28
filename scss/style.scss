@@ -48,6 +48,8 @@ $display-font-sizes: (
 @mixin medium_devices {@media (max-width: 991.98px){@content};}
 @mixin large_devices {@media (max-width: 1199.98px){@content};}
 @mixin extra_large_devices {@media (max-width: 1399.98px){@content};}
+
+@mixin container {max-width: $max-width; height: 100%;}
 //}
 
 //Custom style {
@@ -86,8 +88,7 @@ header {
     background-color: $body-secondary-bg;
     // height: 20dvh;
     .inner {
-        max-width: $max-width;
-        height: 100%;
+        @include container();
         padding: 0;
 
         nav {
@@ -287,7 +288,7 @@ header {
     }
 
     .inner {
-        max-width: $max-width;
+        @include container();
     }
 }
 //Main end

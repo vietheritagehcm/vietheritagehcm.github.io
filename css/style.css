@@ -12103,6 +12103,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
 }
 #introduction .inner {
   max-width: 96dvw;
+  height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
