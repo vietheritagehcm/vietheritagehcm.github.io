@@ -1,40 +1,81 @@
-const setHeaderPadding = (targetQuery) => {
-    const target = document.querySelector(`${targetQuery}`);
-    const header = document.querySelector('header');
-    const headerHeight = parseInt(window.getComputedStyle(header).height.match("[0-9]*")[0]);
-    target.style.paddingBlockStart = `${8 * 16 + headerHeight}px`;
-}
-
-const boxList = document.querySelectorAll('.box');
-
-boxList.forEach((e) => {
-    const content = e.querySelector(".box-content");
-    const button = e.querySelector("a[type=button][aria-controls=box-content]");
-    const buttonExpandedText = button.querySelector("span.box-button-expand");
-    const buttonCollapsedText = button.querySelector("span.box-button-collapse");
-    const flip = () => {
-        [buttonExpandedText.style.display, buttonCollapsedText.style.display]
-      = [buttonCollapsedText.style.display, buttonExpandedText.style.display];
-    };
-    
-    if (content.scrollHeight > content.clientHeight) {
-        button.style.display = buttonExpandedText.style.display = 'inline';
-        buttonCollapsedText.style.display = 'none';
-    } else {
-        button.style.display = 'none';
+class HeaderPadding {
+    constructor(targetElement, headerElement) {
+        this.target = targetElement;
+        this.header = headerElement;
     }
 
-    button.addEventListener('click', (event) => {
-        if (content.ariaExpanded === "false") {
-            content.ariaExpanded = "true"
-            flip();
+    setPadding() {
+        const headerHeight = parseInt(window.getComputedStyle(this.header).height.match("[0-9]*")[0]);
+        this.target.style.paddingBlockStart = `${8 * 16 + headerHeight}px`;
+    }
+
+    update() {
+        this.setPadding();
+    }
+}
+
+class BoxInteraction {
+    constructor(element) {
+        this.element = element;
+        this.content = this.element.querySelector(".box-content");
+        this.button = this.element.querySelector("a[type=button][aria-controls=box-content]");
+        this.buttonExpandedText = this.button.querySelector("span.box-button-expand");
+        this.buttonCollapsedText = this.button.querySelector("span.box-button-collapse");
+
+        this.button.addEventListener('click', this.toggleButton.bind(this));
+        this.update();
+    }
+
+    displayButton() {
+        if (this.content.scrollHeight > this.content.clientHeight) {
+            this.button.style.display = this.buttonExpandedText.style.display = 'inline';
+            this.buttonCollapsedText.style.display = 'none';
         } else {
-            content.ariaExpanded = "false"
-            flip();
+            this.button.style.display = 'none';
         }
-    })
-})
+    }
 
-setHeaderPadding("#hero");
-setHeaderPadding("#introduction");
+    toggleButton() {
+        if (this.content.ariaExpanded === "false") {
+            this.content.ariaExpanded = "true";
+            this.flip();
+        } else {
+            this.content.ariaExpanded = "false";
+            this.flip();
+        }
+    }
 
+    flip() {
+        [this.buttonExpandedText.style.display, this.buttonCollapsedText.style.display]
+            = [this.buttonCollapsedText.style.display, this.buttonExpandedText.style.display];
+    }
+
+    update() {
+        this.displayButton();
+    }
+}
+
+class App {
+    constructor() {
+        const navbar = document.querySelector("header");
+        const header1 = document.querySelector("#hero");
+        const header2 = document.querySelector("#introduction");
+        const boxes = Array.from(document.querySelectorAll('.box'));
+
+        this.headerPadding1 = new HeaderPadding(header1, navbar);
+        this.headerPadding2 = new HeaderPadding(header2, navbar);
+        this.boxes = boxes.map(box => new BoxInteraction(box));
+
+        this.update();
+    }
+
+    update() {
+        this.headerPadding1.update();
+        this.headerPadding2.update();
+        this.boxes.forEach(box => box.update());
+    }
+}
+
+const app = new App();
+
+window.addEventListener("resize", () => app.update());
