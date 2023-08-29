@@ -12073,8 +12073,29 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   z-index: -1;
 }
 #hero #hero-title {
+  font-size: 6rem;
   text-align: center;
   text-transform: uppercase;
+}
+@media (max-width: 1399.98px) {
+  #hero #hero-title {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  #hero #hero-title {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 991.98px) {
+  #hero #hero-title {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 767.98px) {
+  #hero #hero-title {
+    font-size: 2rem;
+  }
 }
 
 #introduction {
@@ -12084,9 +12105,6 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   height: 100dvh;
   position: relative;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 #introduction * {
   color: #fff;
@@ -12104,6 +12122,34 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
 #introduction .inner {
   max-width: 96dvw;
   height: 100%;
+  display: flex;
+  align-items: center;
+}
+#introduction .inner .row {
+  height: 100%;
+}
+#introduction #introduction-title * {
+  font-size: 6rem;
+}
+@media (max-width: 1399.98px) {
+  #introduction #introduction-title * {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  #introduction #introduction-title * {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 991.98px) {
+  #introduction #introduction-title * {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 767.98px) {
+  #introduction #introduction-title * {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

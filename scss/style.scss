@@ -1,4 +1,5 @@
-//Fonts import {
+//Import {
+@use "sass:map";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,400;8..144,600&display=swap");
 @font-face {
     font-family: Bernard;
@@ -50,6 +51,22 @@ $display-font-sizes: (
 @mixin extra_large_devices {@media (max-width: 1399.98px){@content};}
 
 @mixin container {max-width: $max-width; height: 100%;}
+
+@mixin header {
+    font-size: map-get($display-font-sizes, 2);
+    @include extra_large_devices() {
+        font-size: map-get($display-font-sizes, 1);
+    }
+    @include large_devices() {
+        font-size: map-get($display-font-sizes, 3);
+    }
+    @include medium_devices() {
+        font-size: map-get($display-font-sizes, 4);
+    }
+    @include landscape_phones() {
+        font-size: map-get($display-font-sizes, 5);
+    }
+}
 //}
 
 //Custom style {
@@ -256,6 +273,7 @@ header {
 
 
     #hero-title {
+        @include header();
         text-align: center;
         text-transform: uppercase;
     }
@@ -268,9 +286,6 @@ header {
     height: 100dvh;
     position: relative;
     isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
     * {
         color: #fff;
@@ -289,6 +304,15 @@ header {
 
     .inner {
         @include container();
+        display: flex;
+        align-items: center;
+        .row {
+            height: 100%;
+        }
+    }
+
+    #introduction-title * {
+        @include header();
     }
 }
 //Main end
