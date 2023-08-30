@@ -64,6 +64,31 @@ class BoxInteraction {
     }
 }
 
+class contentDistributor {
+    constructor() {
+        const file = require('fs');
+
+        //Simulate API fetch
+        const filePath = '../content/vi.json';
+        fs.readFile(filePath, "utf8", (error, jsonString) => {
+            if (error) {
+                console.error(error);
+                return;
+            }
+        })
+
+        try {
+            this.content = JSON.parse(jsonString);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    distributeContent() {
+
+    }
+}
+
 class App {
     constructor() {
         const navbar = document.querySelector("header");

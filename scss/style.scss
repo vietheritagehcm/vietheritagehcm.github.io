@@ -303,7 +303,7 @@ header {
     }
 
     .inner {
-        @include container();
+        // @include container();
         display: flex;
         align-items: center;
         .row {
@@ -311,8 +311,9 @@ header {
         }
     }
 
-    #introduction-title * {
+    #introduction-title {
         @include header();
+        text-transform: uppercase;
     }
 }
 //Main end
