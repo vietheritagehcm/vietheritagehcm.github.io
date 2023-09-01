@@ -11982,9 +11982,13 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 #navbar-content #main-nav ul li {
   position: relative;
+  text-transform: uppercase;
 }
 #navbar-content #main-nav ul li a span[role=icon] {
   display: none;
