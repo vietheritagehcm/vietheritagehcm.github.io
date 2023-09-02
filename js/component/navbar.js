@@ -1,4 +1,4 @@
-import content from "./content.js"; //Simulate API fetch to get navbar content in different languages
+import content from "../content/content.js"; //Simulate API fetch to get navbar content in different languages
 
 class Navbar {
     constructor(targetNavbar) {

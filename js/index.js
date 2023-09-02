@@ -1,6 +1,6 @@
-import Navbar from "./navbar.js";
-import HeaderPadding from "./header-padding.js";
-import BoxInteraction from "./box-interaction.js";
+import Navbar from "./component/navbar.js";
+import HeaderPadding from "./utilities/header-padding.js";
+import BoxInteraction from "./utilities/box-interaction.js";
 
 class App {
     constructor() {
