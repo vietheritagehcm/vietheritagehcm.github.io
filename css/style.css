@@ -11982,9 +11982,17 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 #navbar-content #main-nav ul li {
   position: relative;
+  isolation: isolate;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
 }
 #navbar-content #main-nav ul li a span[role=icon] {
   display: none;
@@ -11997,6 +12005,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   width: 100%;
   background-color: #6d1515;
   position: absolute;
+  z-index: -1;
   left: 0;
   bottom: 0;
   transition: opacity 0.3s ease;
@@ -12021,7 +12030,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
     display: inline;
     padding-right: 0.5rem;
   }
-  #navbar-content #main-nav ul li a:hover::before {
+  #navbar-content #main-nav ul li a:hover::before, #navbar-content #main-nav ul li a:active::before {
     content: "";
     width: 100%;
     height: 100%;
@@ -12031,7 +12040,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
     background-color: #c89979;
     z-index: -1;
   }
-  #navbar-content #main-nav ul li a:hover::before, #navbar-content #main-nav ul li a:hover::after {
+  #navbar-content #main-nav ul li a:hover::before, #navbar-content #main-nav ul li a:hover::after, #navbar-content #main-nav ul li a:active::before, #navbar-content #main-nav ul li a:active::after {
     width: 100dvw;
   }
 }
@@ -12047,6 +12056,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
 }
 #navbar-content #lang_dropdown a {
   font-size: 1.5rem;
+  font-weight: 700;
 }
 @media (max-width: 991.98px) {
   #navbar-content, #navbar-content #main-nav, #navbar-content #main-nav * {
@@ -12073,8 +12083,29 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   z-index: -1;
 }
 #hero #hero-title {
+  font-size: 6rem;
   text-align: center;
   text-transform: uppercase;
+}
+@media (max-width: 1399.98px) {
+  #hero #hero-title {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  #hero #hero-title {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 991.98px) {
+  #hero #hero-title {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 767.98px) {
+  #hero #hero-title {
+    font-size: 2rem;
+  }
 }
 
 #introduction {
@@ -12084,9 +12115,6 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   height: 100dvh;
   position: relative;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 #introduction * {
   color: #fff;
@@ -12102,7 +12130,35 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   z-index: -1;
 }
 #introduction .inner {
-  max-width: 96dvw;
+  display: flex;
+  align-items: center;
+}
+#introduction .inner .row {
+  height: 100%;
+}
+#introduction #introduction-title {
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+@media (max-width: 1399.98px) {
+  #introduction #introduction-title {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1199.98px) {
+  #introduction #introduction-title {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 991.98px) {
+  #introduction #introduction-title {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 767.98px) {
+  #introduction #introduction-title {
+    font-size: 2rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

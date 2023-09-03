@@ -1,33 +1,33 @@
-const setHeaderPadding = (targetQuery) => {
-    const target = document.querySelector(`${targetQuery}`);
-    const header = document.querySelector('header');
-    const headerHeight = parseInt(window.getComputedStyle(header).height.match("[0-9]*")[0]);
-    target.style.paddingBlock = `${8 * 16 + headerHeight}px`;
-}
+import ContentDistributor from "./utilities/content-distributor.js";
+import HeaderPadding from "./utilities/header-padding.js";
+import BoxInteraction from "./utilities/box-interaction.js";
 
-const boxList = document.querySelectorAll('.box');
+class App {
+    constructor() {
+        const navbarHeader = document.querySelector("header");
+        const header1 = document.querySelector("#hero");
+        const header2 = document.querySelector("#introduction");
+        const boxes = Array.from(document.querySelectorAll('.box'));
+        const populateContent = (lang) => {
+            const contentDistributor = new ContentDistributor(lang);
+            contentDistributor.update(lang)
+        };
 
-boxList.forEach((e) => {
-    const content = e.querySelector(".box-content");
-    const button = e.querySelector("a[type=button][aria-controls=box-content]");
-    
-    if (content.scrollHeight > content.clientHeight) {
-        button.style.display = 'inline';
-    } else {
-        button.style.display = 'none';
+        this.headerPadding1 = new HeaderPadding(header1, navbarHeader, 8);
+        this.headerPadding2 = new HeaderPadding(header2, navbarHeader, 0);
+        this.boxes = boxes.map(box => new BoxInteraction(box));
+
+        populateContent("vi");
+        this.update();
     }
 
-    button.addEventListener('click', (event) => {
-        if (content.ariaExpanded === "false") {
-            content.ariaExpanded = "true"
-            button.innerText = "Read less";
-        } else {
-            content.ariaExpanded = "false"
-            button.innerText = "Read more";
-        }
-    })
-})
+    update() {
+        this.headerPadding1.update();
+        this.headerPadding2.update();
+        this.boxes.forEach(box => box.update());
+    }
+}
 
-setHeaderPadding("#hero");
-setHeaderPadding("#introduction");
+const app = new App();
 
+window.addEventListener("resize", () => app.update());
