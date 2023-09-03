@@ -1,4 +1,4 @@
-import Navbar from "./component/navbar.js";
+import ContentDistributor from "./utilities/content-distributor.js";
 import HeaderPadding from "./utilities/header-padding.js";
 import BoxInteraction from "./utilities/box-interaction.js";
 
@@ -8,13 +8,16 @@ class App {
         const header1 = document.querySelector("#hero");
         const header2 = document.querySelector("#introduction");
         const boxes = Array.from(document.querySelectorAll('.box'));
-        const navbarContent = document.querySelector("#main-nav");
+        const populateContent = (lang) => {
+            const contentDistributor = new ContentDistributor(lang);
+            contentDistributor.update(lang)
+        };
 
         this.headerPadding1 = new HeaderPadding(header1, navbarHeader, 8);
         this.headerPadding2 = new HeaderPadding(header2, navbarHeader, 0);
         this.boxes = boxes.map(box => new BoxInteraction(box));
-        this.navbarContent = new Navbar(navbarContent);
 
+        populateContent("vi");
         this.update();
     }
 

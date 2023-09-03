@@ -12154,5 +12154,8 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
     font-size: 2rem;
   }
 }
+#introduction #introduction-content {
+  font-size: 1rem;
+}
 
 /*# sourceMappingURL=style.css.map */
