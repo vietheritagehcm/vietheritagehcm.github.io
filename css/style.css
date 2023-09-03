@@ -12056,6 +12056,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
 }
 #navbar-content #lang_dropdown a {
   font-size: 1.5rem;
+  font-weight: 700;
 }
 @media (max-width: 991.98px) {
   #navbar-content, #navbar-content #main-nav, #navbar-content #main-nav * {
