@@ -166,6 +166,10 @@ header {
             align-items: center;
             li {
                 position: relative;
+                isolation: isolate;
+                width: 50%;
+                margin: 0 auto;
+                text-align: center;
                 text-transform: uppercase;
                 a {
                     span[role="icon"] {
@@ -180,6 +184,7 @@ header {
                         width: 100%;
                         background-color: $danger;
                         position: absolute;
+                        z-index: -1;
                         left: 0;
                         bottom: 0;
                         transition: opacity 0.3s ease;
@@ -209,7 +214,7 @@ header {
                             padding-right: 0.5rem;
                         }
                         
-                        &:hover {
+                        &:hover, &:active {
                             &::before {
                                 content: "";
                                 width: 100%;
