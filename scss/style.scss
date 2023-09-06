@@ -167,7 +167,7 @@ header {
             li {
                 position: relative;
                 isolation: isolate;
-                width: 50%;
+                min-width: 50%;
                 margin: 0 auto;
                 text-align: center;
                 text-transform: uppercase;
@@ -240,7 +240,7 @@ header {
         }
     }
 
-    #lang_dropdown {
+    #lang-dropdown {
 
         display: flex;
         justify-content: center;
@@ -292,7 +292,7 @@ header {
     background: url("../img/Asset 1.png");
     background-size: cover;
     background-position: center;
-    height: 100dvh;
+    min-height: 100dvh;
     position: relative;
     isolation: isolate;
 
