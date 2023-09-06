@@ -1,6 +1,7 @@
 import ContentDistributor from "./utilities/content-distributor.js";
 import HeaderPadding from "./utilities/header-padding.js";
 import BoxInteraction from "./utilities/box-interaction.js";
+import Dropdown from "./utilities/dropdown.js";
 
 class App {
     constructor() {
@@ -8,16 +9,13 @@ class App {
         const header1 = document.querySelector("#hero");
         const header2 = document.querySelector("#introduction");
         const boxes = Array.from(document.querySelectorAll('.box'));
-        const populateContent = (lang) => {
-            const contentDistributor = new ContentDistributor(lang);
-            contentDistributor.update(lang)
-        };
 
         this.headerPadding1 = new HeaderPadding(header1, navbarHeader, 8);
         this.headerPadding2 = new HeaderPadding(header2, navbarHeader, 0);
         this.boxes = boxes.map(box => new BoxInteraction(box));
+        this.contentDistributor = new ContentDistributor("vi");
+        this.dropdown = new Dropdown("#lang-dropdown", this.contentDistributor);
 
-        populateContent("vi");
         this.update();
     }
 
@@ -30,4 +28,4 @@ class App {
 
 const app = new App();
 
-window.addEventListener("resize", () => app.update());
+document.addEventListener("resize", () => app.update());

@@ -11,9 +11,10 @@ class ContentDistributor {
 
     update(lang) {
         this.content = content[lang];
-        
-        for (const id in this.content) {
-            document.getElementById(id).innerHTML = DOMPurify.sanitize(this.content[id]);
+        if (this.content) {
+            for (const id in this.content) {
+                document.getElementById(id).innerHTML = DOMPurify.sanitize(this.content[id]);
+            }
         }
     }
 }

@@ -11989,7 +11989,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
 #navbar-content #main-nav ul li {
   position: relative;
   isolation: isolate;
-  width: 50%;
+  min-width: 50%;
   margin: 0 auto;
   text-align: center;
   text-transform: uppercase;
@@ -12049,12 +12049,12 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
     grid-template-columns: 1fr;
   }
 }
-#navbar-content #lang_dropdown {
+#navbar-content #lang-dropdown {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#navbar-content #lang_dropdown a {
+#navbar-content #lang-dropdown a {
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -12112,7 +12112,7 @@ header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] s
   background: url("../img/Asset 1.png");
   background-size: cover;
   background-position: center;
-  height: 100dvh;
+  min-height: 100dvh;
   position: relative;
   isolation: isolate;
 }
