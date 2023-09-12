@@ -95,6 +95,7 @@ This code fetch content from API and then return it to the module. Then we will 
 </ul>
 </ul>
 <li> Content
+<ul>
 <li> Content is also rendered using JS but there is no API, so API is simulated through <u>content/content.js</u>. Also, the contents are divided into <code>lang</code> and <code>id of the elements</code> instead of the <code>contentName</code>. For instance: <ul>
 <li> <b>content.js</b>
 
@@ -151,7 +152,7 @@ class ContentDistributor {
 
 export default ContentDistributor;
 ```
-</li></ul></ul>
+</li></ul></ul></ul>
 
 <h3> Conclusion </h3>
 <p> Technically, I can set up a whole website. But this is a demo of the front end only. So this repo is not for official use. Therefore, if you want to recreate this website as a functional website, you can refer to the "How this website should be developed" section. </p>
