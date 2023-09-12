@@ -8,17 +8,18 @@
 //}
 
 //Default bootstrap variable modify {
-$primary: #c77c49;
-$secondary: #efdfbb;
+$primary: #efdfbb;
+$secondary: #c77c49;
+$tertiary: #d6a98b;
 $danger: #6d1515;
 
-$body-bg: #efdfbb;
+$body-bg: $primary;
 $body-color: #000;
 
-$body-secondary-bg: #c77c49;
+$body-secondary-bg: $secondary;
 $body-secondary-color: #1f1f1f;
 
-$body-tertiary-bg: #c89979;
+$body-tertiary-bg: $tertiary;
 $body-tertiary-color: #2c2c2c;
 
 $link-decoration: none;
@@ -262,13 +263,14 @@ header {
 //Header end
 
 //Main begin
-#hero {
+section#hero {
     background-image: url("../img/IMG_0773.JPG");
     background-size: cover;
     background-position: center;
     height: 100dvh;
     position: relative;
     isolation: isolate;
+    padding-block-start: 8rem;
 
     ::after {
         content: "";
@@ -289,7 +291,7 @@ header {
     }
 }
 
-#introduction {
+section#introduction {
     background: url("../img/Asset 1.png");
     background-size: cover;
     background-position: center;
@@ -330,6 +332,56 @@ header {
 
 ///HERITAGE.HTML///
 
+section#post {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
 
+    #heritage {
+        display: grid;
+        place-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+        gap: 1.5rem;
+    
+        .post {
+            &, * {
+                transition: all 0.3s ease-in-out;
+            }
+            padding: 1rem 0.5rem;
+            border-radius: 5%;
+            border: 0.5px solid #000;
+            box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
+
+            .post-thumbnail-container {
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                margin: 1rem;
+                
+                .post-thumbnail {
+                    width: 100%;
+                }
+            }
+            &:hover {
+                box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                cursor: pointer;
+            }
+        }
+    
+        a {
+            font-size: map-get($display-font-sizes, 5);
+            font-weight: bold;
+            text-transform: capitalize;
+            color: $danger;
+        }
+    }
+}
 
 //}

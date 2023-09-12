@@ -1,11 +1,18 @@
 import App from "../app.js";
+import PostDistributor from "../utilities/post-distributor.js";
 
 class Page {
     constructor() {
-        const heritage = document.querySelector("#heritage");
-        const documentFragment = document.createDocumentFragment();
+        this.heritage = document.querySelector("#heritage");
+        this.app = new App("heritage", "vi");
+        this.postDistributorHandle = new PostDistributor("vi", "heritage");
 
-        this.app = new App();
+        this.update();
+    }
+
+    update() {
+        this.app.update();
+        this.postDistributorHandle.update(this.heritage);
     }
 }
 

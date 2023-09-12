@@ -1,21 +1,21 @@
-import content from "../content/content.js";
+import content from "../api/content/content.js";
+import Distributor from "../helper/distributor.js";
 
-class ContentDistributor {
-    constructor(lang) {
-        if (lang) {
-            this.update(lang);
-        } else {
-            throw new Error("\"lang\" property is empty");
+class ContentDistributor extends Distributor {
+    update() {
+        const updateContent = (lang, page) => {
+            this.content = content[lang ? lang : this.lang][page ? page : "general"];
+            if (this.content) {
+                for (const id in this.content) {
+                    const target = document.getElementById(id);
+                    if (target) {
+                        target.innerHTML = DOMPurify.sanitize(this.content[id]);
+                    }
+                }
+            }   
         }
-    }
-
-    update(lang) {
-        this.content = content[lang];
-        if (this.content) {
-            for (const id in this.content) {
-                document.getElementById(id).innerHTML = DOMPurify.sanitize(this.content[id]);
-            }
-        }
+        updateContent(this.lang);
+        updateContent(this.lang, this.page);
     }
 }
 
