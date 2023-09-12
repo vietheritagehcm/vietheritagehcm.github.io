@@ -56,7 +56,7 @@ function header(heritageName, language) {
         }
         const data = await response.json();
 
-        setContent(data);
+        setContent(data); //Well, I mean there are many things here, such as title or description but this is a simple example
       } catch (error) {
         console.log(error.message);
       }
