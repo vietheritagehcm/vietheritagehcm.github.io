@@ -11935,28 +11935,31 @@ ul li {
   display: block;
 }
 
+.inner {
+  max-width: 96dvw;
+  height: 100%;
+}
+
 header {
   background-color: #c77c49;
 }
-header .inner {
-  max-width: 96dvw;
-  height: 100%;
+header > .inner {
   padding: 0;
 }
-header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=false] span[label=open] {
+header > .inner nav button[data-bs-target="#navbar-content"][aria-expanded=false] span[label=open] {
   display: initial;
 }
-header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=false] span[label=close] {
+header > .inner nav button[data-bs-target="#navbar-content"][aria-expanded=false] span[label=close] {
   display: none;
 }
-header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] span[label=close] {
+header > .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] span[label=close] {
   display: initial;
 }
-header .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] span[label=open] {
+header > .inner nav button[data-bs-target="#navbar-content"][aria-expanded=true] span[label=open] {
   display: none;
 }
 @media (max-width: 991.98px) {
-  header .inner, header .inner nav {
+  header > .inner, header > .inner nav {
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -12169,21 +12172,27 @@ section#post {
 }
 section#post #heritage {
   display: grid;
-  place-content: center;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(25%, 1fr));
+  align-items: center;
   text-align: center;
-  gap: 1.5rem;
 }
 section#post #heritage .post {
+  height: 100%;
+  max-width: 100%;
+  margin: 0.5rem;
   padding: 1rem 0.5rem;
   border-radius: 5%;
   border: 0.5px solid #000;
   box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.75);
-}
-section#post #heritage .post, section#post #heritage .post * {
   transition: all 0.3s ease-in-out;
+}
+section#post #heritage .post:hover {
+  box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
 }
 section#post #heritage .post .post-thumbnail-container {
   overflow: hidden;
@@ -12196,17 +12205,24 @@ section#post #heritage .post .post-thumbnail-container {
 section#post #heritage .post .post-thumbnail-container .post-thumbnail {
   width: 100%;
 }
-section#post #heritage .post:hover {
-  box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 6px 27px 5px rgba(0, 0, 0, 0.75);
-  cursor: pointer;
+section#post #heritage .post .post-title {
+  word-wrap: break-word;
 }
 section#post #heritage a {
   font-size: 2rem;
   font-weight: bold;
   text-transform: capitalize;
   color: #6d1515;
+}
+@media (max-width: 767.98px) {
+  section#post #heritage a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 575.98px) {
+  section#post #heritage {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -68,6 +68,13 @@ $display-font-sizes: (
         font-size: map-get($display-font-sizes, 5);
     }
 }
+
+@mixin a {
+    font-size: map-get($display-font-sizes, 5);
+    @include landscape_phones() {
+        font-size: 1rem;
+    }
+}
 //}
 
 //Custom style {
@@ -100,14 +107,16 @@ ul li {
     }
 }
 
+.inner {
+    @include container();
+}
 ///INDEX.HTML///
 
 //Header begin
 header {
     background-color: $body-secondary-bg;
     // height: 20dvh;
-    .inner {
-        @include container();
+    &>.inner {
         padding: 0;
 
         nav {
@@ -339,22 +348,28 @@ section#post {
 
     #heritage {
         display: grid;
-        place-content: center;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(calc(100% / 4), 1fr));
+        align-items: center;
         text-align: center;
-        gap: 1.5rem;
     
         .post {
-            &, * {
-                transition: all 0.3s ease-in-out;
-            }
+            height: 100%;
+            max-width: 100%;
+            margin: 0.5rem;
             padding: 1rem 0.5rem;
             border-radius: 5%;
             border: 0.5px solid #000;
             box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
             -webkit-box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 6px 10px 1px rgba(0,0,0,0.75);
+            transition: all 0.3s ease-in-out;
 
+            &:hover {
+                box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                -moz-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
+                cursor: pointer;
+            }
             .post-thumbnail-container {
                 overflow: hidden;
                 display: flex;
@@ -367,19 +382,20 @@ section#post {
                     width: 100%;
                 }
             }
-            &:hover {
-                box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
-                -webkit-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
-                -moz-box-shadow: 0px 6px 27px 5px rgba(0,0,0,0.75);
-                cursor: pointer;
+            .post-title {
+                word-wrap: break-word;
             }
         }
     
         a {
-            font-size: map-get($display-font-sizes, 5);
+            @include a();
             font-weight: bold;
             text-transform: capitalize;
             color: $danger;
+        }
+
+        @include potrait_phones() {
+            grid-template-columns: 1fr;
         }
     }
 }

@@ -14,5 +14,5 @@ class Page {
 
 const page = new Page();
 
-document.addEventListener("resize", () => {page.update();})
-document.addEventListener("unload", () => {document.removeEventListener("resize")});
+window.addEventListener("resize", () => {page.update();})
+window.addEventListener("unload", () => {window.removeEventListener("resize")});
