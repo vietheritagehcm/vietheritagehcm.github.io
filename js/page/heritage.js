@@ -1,12 +1,12 @@
 import debounce from "../helper/debounce.js";
 import App from "../app.js";
-import PostDistributor from "../utilities/post-distributor.js";
+import PostMenuDistributor from "../utilities/post-distributor.js";
 
 class Page {
     constructor() {
-        this.heritage = document.querySelector("#heritage");
+        this.target = document.querySelector("#heritage");
         this.app = new App("heritage", "vi");
-        this.postDistributorHandle = new PostDistributor("vi", "heritage", this.heritage);
+        this.postDistributorHandle = new PostMenuDistributor("vi", "heritage", this.target);
 
         this.update();
     }

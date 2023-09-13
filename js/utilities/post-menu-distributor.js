@@ -1,19 +1,8 @@
-import post from "../api/post/post.js";
-import Distributor from "../helper/distributor.js";
+import PostDistributor from "../helper/post-distributor.js";
 
-class PostDistributor extends Distributor {
-    constructor(lang, page, target) {
-        super(lang, page);
-        this.target = target;
-
-        this.populatePost();
-        this.stylePost();
-    }
-
+class PostMenuDistributor extends PostDistributor {
     populatePost() {
         const documentFragment = document.createDocumentFragment();
-
-        this.content = post[this.lang];
 
         if (this.content) {
             for (const postName in this.content) {
@@ -31,11 +20,11 @@ class PostDistributor extends Distributor {
                     title.classList.add("post-title");
                     image.classList.add("post-thumbnail");
                     imgContainer.classList.add("post-thumbnail-container");
-        
+
                     imgContainer.appendChild(image);
                     container.appendChild(imgContainer);
                     container.appendChild(title);
-        
+
                     documentFragment.appendChild(container);
                 }
             }
@@ -59,4 +48,4 @@ class PostDistributor extends Distributor {
     }
 }
 
-export default PostDistributor;
+export default PostMenuDistributor;

@@ -2,9 +2,13 @@ import content from "../api/content/content.js";
 import Distributor from "../helper/distributor.js";
 
 class ContentDistributor extends Distributor {
-    update() {
+    update(lang) {
+        lang = lang ? lang : this.lang;
+        
         const updateContent = (lang, page) => {
-            this.content = content[lang ? lang : this.lang][page ? page : "general"];
+            lang = lang ? lang : this.lang;
+            page = page ? page : "general";
+            this.content = content[lang][page];
             if (this.content) {
                 for (const id in this.content) {
                     const target = document.getElementById(id);
@@ -14,8 +18,8 @@ class ContentDistributor extends Distributor {
                 }
             }   
         }
-        updateContent(this.lang);
-        updateContent(this.lang, this.page);
+        updateContent(lang);
+        updateContent(lang, this.page);
     }
 }
 

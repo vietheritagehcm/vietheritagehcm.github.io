@@ -45,7 +45,7 @@ $display-font-sizes: (
 //}
 
 //Mixin {
-@mixin potrait_phones {@media (max-width: 575.98px){@content};}
+@mixin portrait_phones {@media (max-width: 575.98px){@content};}
 @mixin landscape_phones {@media (max-width: 767.98px){@content};}
 @mixin medium_devices {@media (max-width: 991.98px){@content};}
 @mixin large_devices {@media (max-width: 1199.98px){@content};}
@@ -341,6 +341,7 @@ section#introduction {
 
 ///HERITAGE.HTML///
 
+//Post begin
 section#post {
     min-height: 100dvh;
     display: flex;
@@ -349,13 +350,14 @@ section#post {
     #heritage {
         display: grid;
         grid-template-columns: repeat(4, minmax(calc(100% / 4), 1fr));
+        gap: 1rem;
         align-items: center;
+        justify-content: center;
         text-align: center;
     
         .post {
             height: 100%;
             max-width: 100%;
-            margin: 0.5rem;
             padding: 1rem 0.5rem;
             border-radius: 5%;
             border: 0.5px solid #000;
@@ -394,8 +396,11 @@ section#post {
             color: $danger;
         }
 
-        @include potrait_phones() {
+        @include portrait_phones() {
             grid-template-columns: 1fr;
+        }
+        @include medium_devices() {
+            grid-template-columns: repeat(2, minmax(calc(100% / 2), 1fr));
         }
     }
 }

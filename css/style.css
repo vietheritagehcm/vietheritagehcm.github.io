@@ -12173,13 +12173,14 @@ section#post {
 section#post #heritage {
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, 1fr));
+  gap: 1rem;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 section#post #heritage .post {
   height: 100%;
   max-width: 100%;
-  margin: 0.5rem;
   padding: 1rem 0.5rem;
   border-radius: 5%;
   border: 0.5px solid #000;
@@ -12222,6 +12223,11 @@ section#post #heritage a {
 @media (max-width: 575.98px) {
   section#post #heritage {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 991.98px) {
+  section#post #heritage {
+    grid-template-columns: repeat(2, minmax(50%, 1fr));
   }
 }
 
