@@ -1,6 +1,6 @@
 import debounce from "../helper/debounce.js";
 import App from "../app.js";
-import PostMenuDistributor from "../utilities/post-distributor.js";
+import PostMenuDistributor from "../utilities/post-menu-distributor.js";
 
 class Page {
     constructor() {
@@ -12,7 +12,6 @@ class Page {
     }
 
     update() {
-        console.log("resizing");
         this.app.update();
         this.postDistributorHandle.update();
     }

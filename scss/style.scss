@@ -404,5 +404,29 @@ section#post {
         }
     }
 }
+//Post end
+
+///{heritage}.html///
+
+.post-page {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(calc(100% / 2), 1fr));
+    gap: 2rem;
+    place-items: center;
+    align-items: center;
+    justify-content: center;
+
+    #content-carousel {
+        max-width: 100%;
+        max-height: 100%;
+        overflow-y: scroll;
+    }
+    #image-carousel * {
+        max-width: 100%;
+    }
+}
+
+/// 
 
 //}

@@ -12231,4 +12231,22 @@ section#post #heritage a {
   }
 }
 
+.post-page {
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50%, 1fr));
+  gap: 2rem;
+  place-items: center;
+  align-items: center;
+  justify-content: center;
+}
+.post-page #content-carousel {
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.post-page #image-carousel * {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

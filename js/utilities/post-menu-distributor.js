@@ -36,7 +36,6 @@ class PostMenuDistributor extends PostDistributor {
     stylePost() {
         const postThumbnails = this.target.querySelectorAll(".post-thumbnail");
         const postThumbnailWidth = parseInt(window.getComputedStyle(postThumbnails[0]).width.match("[0-9]*")[0]);
-        console.log(postThumbnailWidth);
 
         for (const thumbnail of postThumbnails) {
             thumbnail.style.height = `${postThumbnailWidth}px`;
