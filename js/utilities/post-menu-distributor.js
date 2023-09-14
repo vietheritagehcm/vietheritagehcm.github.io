@@ -13,7 +13,7 @@ class PostMenuDistributor extends PostDistributor {
                     const title = document.createElement("a");
                     const image = document.createElement("img");
                     title.innerHTML = DOMPurify.sanitize(post["title"]);
-                    title.href = `./page/${postName}.html`;
+                    title.href = `./${postName}.html`;
                     image.src = post["image"][0];
                     image.loading = "lazy";
                     container.classList.add("post");
