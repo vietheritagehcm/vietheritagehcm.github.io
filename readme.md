@@ -38,7 +38,7 @@
 <li> Posts' contents should be fetched from an API and put in a module before rendering with React. For example:
 
 ```js
-"client component";
+"use client";
 import { useEffect, useState } from "react";
 
 function header(heritageName, language) {

@@ -11,17 +11,14 @@ class PostMenuDistributor extends PostDistributor {
                     const container = document.createElement("div");
                     const imgContainer = document.createElement("div");
                     const title = document.createElement("a");
-                    const image = document.createElement("img");
                     title.innerHTML = DOMPurify.sanitize(post["title"]);
                     title.href = `./${postName}.html`;
-                    image.src = post["image"][0];
-                    image.loading = "lazy";
+                    imgContainer.innerHTML = DOMPurify.sanitize(post["image"][0]);
                     container.classList.add("post");
                     title.classList.add("post-title");
-                    image.classList.add("post-thumbnail");
+                    imgContainer.querySelector("img").classList.add("post-thumbnail");
                     imgContainer.classList.add("post-thumbnail-container");
 
-                    imgContainer.appendChild(image);
                     container.appendChild(imgContainer);
                     container.appendChild(title);
 

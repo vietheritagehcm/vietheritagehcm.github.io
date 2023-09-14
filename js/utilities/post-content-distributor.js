@@ -35,11 +35,8 @@ class PostContentDistributor extends PostDistributor {
         });
         this.createCarousel(this.imageCarousel, "image", (image) => {
             const temp = document.createElement("div");
-            const newImage = document.createElement("img");
             temp.classList.add("carousel-item");
-            newImage.src = image;
-            temp.appendChild(newImage);
-
+            temp.innerHTML = DOMPurify.sanitize(image);
             return temp;
         });
         
