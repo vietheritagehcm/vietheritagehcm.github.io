@@ -1,0 +1,1 @@
+This folder simulate return value from API
