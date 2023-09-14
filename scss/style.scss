@@ -41,6 +41,8 @@ $display-font-sizes: (
   6: 1.625rem
 );
 
+$carousel-transition-duration: 0.5s;
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 //}
 
@@ -408,13 +410,25 @@ section#post {
 
 ///{heritage}.html///
 
-.post-page {
+#post-page-container {
     height: 100dvh;
+    display: flex;
+    align-items: center;
+
+    @include medium_devices() {
+        min-height: 100dvh;
+        height: 100%;
+    }
+}
+
+.post-page {
+    height: 50dvh;
     display: grid;
     grid-template-columns: repeat(2, minmax(calc(100% / 2), 1fr));
     gap: 2rem;
     place-items: center;
     align-items: center;
+    align-self: center;
     justify-content: center;
 
     #content-carousel {
@@ -424,6 +438,19 @@ section#post {
     }
     #image-carousel * {
         max-width: 100%;
+    }
+
+    @include medium_devices() {
+        display: flex;
+        flex-direction: column-reverse;
+        height: unset;
+
+        #content-carousel {
+            max-height: unset;
+            overflow: unset;
+            display: -webkit-box;
+            
+        }
     }
 }
 

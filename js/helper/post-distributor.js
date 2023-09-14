@@ -1,4 +1,4 @@
-import post from "../api/post/post.js";
+import post from "../api/post/post-content.js";
 import Distributor from "../helper/distributor.js";
 
 class PostDistributor extends Distributor {

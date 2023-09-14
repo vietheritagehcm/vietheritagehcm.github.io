@@ -2,24 +2,14 @@ import PostDistributor from "../helper/post-distributor.js";
 
 class PostContentDistributor extends PostDistributor {
     createTemplate() {
-        this.contentCarousel = document.createElement("div");
-        this.imageCarousel = document.createElement("div");
-
-        this.contentCarousel.id = "content-carousel";
-        this.imageCarousel.id = "image-carousel";
-
-        this.contentCarousel.classList.add("carousel", "slide");
-        this.imageCarousel.classList.add("carousel", "slide");
-
-        this.contentCarousel.setAttribute("data-bs-ride", "carousel");
-        this.imageCarousel.setAttribute("data-bs-ride", "carousel");
+        this.contentCarousel = document.querySelector("#content-carousel");
+        this.imageCarousel = document.querySelector("#image-carousel");
     }
 
     createCarousel(target, containerName, newElementHandler) {
         const documentFragment = document.createDocumentFragment();
-        const container = document.createElement("div");
+        const container = target.querySelector("div.carousel-inner");
         let state = "active";
-        container.classList.add("carousel-inner");
 
         for (const content of this.content[this.target.id][containerName]) {
             const temp = newElementHandler(content);

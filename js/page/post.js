@@ -4,7 +4,7 @@ import PostContentDistributor from "../utilities/post-content-distributor.js";
 
 class Page {
     constructor() {
-        this.target = document.querySelector("section");
+        this.target = document.querySelector("div.post-page");
         this.app = new App(`${this.target.id}`, "vi");
         this.post = new PostContentDistributor("vi", `${this.target.id}`, this.target)
     }
