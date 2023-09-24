@@ -436,8 +436,14 @@ section#post {
         max-height: 100%;
         overflow-y: scroll;
     }
-    #image-carousel * {
-        max-width: 100%;
+    #image-carousel {
+        * {
+            max-width: 100%;
+        }
+
+        img {
+            aspect-ratio: 16/9;
+        }
     }
 
     @include medium_devices() {

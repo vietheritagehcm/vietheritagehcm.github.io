@@ -12261,11 +12261,19 @@ section#post #heritage a {
 .post-page #image-carousel * {
   max-width: 100%;
 }
+.post-page #image-carousel img {
+  aspect-ratio: 16/9;
+}
 @media (max-width: 991.98px) {
   .post-page {
     display: flex;
     flex-direction: column-reverse;
     height: unset;
+  }
+  .post-page #content-carousel {
+    max-height: unset;
+    overflow: unset;
+    display: -webkit-box;
   }
 }
 
