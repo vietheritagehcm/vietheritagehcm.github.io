@@ -10,6 +10,7 @@ class PostContentDistributor extends PostDistributor {
         const documentFragment = document.createDocumentFragment();
         const container = target.querySelector("div.carousel-inner");
         let state = "active";
+        container.innerHTML = "";
 
         for (const content of this.content[this.target.id][containerName]) {
             const temp = newElementHandler(content);
@@ -41,8 +42,6 @@ class PostContentDistributor extends PostDistributor {
         });
         
     }
-
-    stylePost() {}
 };
 
 export default PostContentDistributor;

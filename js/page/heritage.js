@@ -7,13 +7,13 @@ class Page {
         this.target = document.querySelector("#heritage");
         this.app = new App("heritage", "vi");
         this.postDistributorHandle = new PostMenuDistributor("vi", "heritage", this.target);
+        this.app.dropdown.contentDistributors.push(this.postDistributorHandle);
 
         this.update();
     }
 
     update() {
         this.app.update();
-        this.postDistributorHandle.update();
     }
 }
 

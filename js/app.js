@@ -9,7 +9,7 @@ class App {
 
         this.boxes = boxes.map(box => new BoxInteraction(box));
         this.contentDistributorHandler = new ContentDistributor(defaultLang, page);
-        this.dropdown = new Dropdown("#lang-dropdown", this.contentDistributorHandler);
+        this.dropdown = new Dropdown("#lang-dropdown", [this.contentDistributorHandler]);
 
         this.padding = () => {
             const header = document.querySelector("header");

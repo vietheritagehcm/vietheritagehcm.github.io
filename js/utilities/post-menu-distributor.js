@@ -2,6 +2,7 @@ import PostDistributor from "../helper/post-distributor.js";
 
 class PostMenuDistributor extends PostDistributor {
     populatePost() {
+        this.target.innerHTML = "";
         const documentFragment = document.createDocumentFragment();
 
         if (this.content) {
@@ -28,19 +29,6 @@ class PostMenuDistributor extends PostDistributor {
         }
 
         this.target.appendChild(documentFragment);
-    }
-
-    stylePost() {
-        const postThumbnails = this.target.querySelectorAll(".post-thumbnail");
-        const postThumbnailWidth = parseInt(window.getComputedStyle(postThumbnails[0]).width.match("[0-9]*")[0]);
-
-        for (const thumbnail of postThumbnails) {
-            thumbnail.style.height = `${postThumbnailWidth}px`;
-        }
-    }
-
-    update() {
-        this.stylePost();
     }
 }
 

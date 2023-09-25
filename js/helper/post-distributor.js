@@ -5,10 +5,14 @@ class PostDistributor extends Distributor {
     constructor(lang, page, target) {
         super(lang, page);
         this.target = target;
+        this.update(lang);
+    }
+
+    update (lang) {
+        this.lang = lang;
         this.content = post[this.lang];
 
         this.populatePost();
-        this.stylePost();
     }
 }
 

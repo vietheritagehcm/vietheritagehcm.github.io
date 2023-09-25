@@ -1,6 +1,7 @@
 class Dropdown {
-    constructor(id, contentDistributor) {
+    constructor(id, contentDistributors) {
         this.dropdown = document.querySelector(id);
+        this.contentDistributors = contentDistributors;
         if (this.dropdown) {
             const dropdownMenu = this.dropdown.querySelector(".dropdown-menu");
             const dropdownButton = this.dropdown.querySelector("a.btn[type=button]");
@@ -27,7 +28,9 @@ class Dropdown {
                     updateLanguage(targetLang);
                     /*Instead of fetching html content from API, 
                       we just load local content because we don't have an API lmao*/
-                    contentDistributor.update(targetLang);
+                    for (const contentDistributor of this.contentDistributors) {
+                        contentDistributor.update(targetLang);
+                    }
                 }
             })
         }

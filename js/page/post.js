@@ -6,7 +6,8 @@ class Page {
     constructor() {
         this.target = document.querySelector("div.post-page");
         this.app = new App(`${this.target.id}`, "vi");
-        this.post = new PostContentDistributor("vi", `${this.target.id}`, this.target)
+        this.post = new PostContentDistributor("vi", `${this.target.id}`, this.target);
+        this.app.dropdown.contentDistributors.push(this.post);
     }
 
     update() {

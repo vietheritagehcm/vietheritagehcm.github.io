@@ -12205,6 +12205,7 @@ section#post #heritage .post .post-thumbnail-container {
 }
 section#post #heritage .post .post-thumbnail-container .post-thumbnail {
   width: 100%;
+  aspect-ratio: 1/1;
 }
 section#post #heritage .post .post-title {
   word-wrap: break-word;
