@@ -2,8 +2,11 @@ import PostDistributor from "../helper/post-distributor.js";
 
 class PostContentDistributor extends PostDistributor {
     createTemplate() {
-        this.contentCarousel = document.querySelector("#content-carousel");
-        this.imageCarousel = document.querySelector("#image-carousel");
+        this.contentCarousel = document.getElementById("content-carousel");
+        this.imageCarousel = document.getElementById("image-carousel");
+
+        this.contentCarouselControl = new bootstrap.Carousel(this.contentCarousel);
+        this.imageCarouselControl = new bootstrap.Carousel(this.imageCarousel);
     }
 
     createCarousel(target, containerName, newElementHandler) {
@@ -37,10 +40,18 @@ class PostContentDistributor extends PostDistributor {
         this.createCarousel(this.imageCarousel, "image", (image) => {
             const temp = document.createElement("div");
             temp.classList.add("carousel-item");
-            temp.innerHTML = DOMPurify.sanitize(image);
+            temp.innerHTML = DOMPurify.sanitize(image, {ALLOWED_TAGS: ["iframe", "img"]});
             return temp;
         });
-        
+
+        //Idk
+        const iframes = this.imageCarousel.querySelectorAll("iframe");
+
+        iframes.forEach((iframe) => {
+            iframe.addEventListener("ended", () => {
+                this.imageCarouselControl.next();
+            });
+        });
     }
 };
 
