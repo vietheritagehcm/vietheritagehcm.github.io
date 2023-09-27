@@ -7,6 +7,10 @@ class PostContentDistributor extends PostDistributor {
 
         this.contentCarouselControl = new bootstrap.Carousel(this.contentCarousel);
         this.imageCarouselControl = new bootstrap.Carousel(this.imageCarousel);
+
+        this.contentCarousel.addEventListener("slide.bs.carousel", (e) => {
+            this.imageCarouselControl.to(e.to);
+        })
     }
 
     createCarousel(target, containerName, newElementHandler) {
@@ -42,15 +46,6 @@ class PostContentDistributor extends PostDistributor {
             temp.classList.add("carousel-item");
             temp.innerHTML = DOMPurify.sanitize(image, {ALLOWED_TAGS: ["iframe", "img"]});
             return temp;
-        });
-
-        //Idk
-        const iframes = this.imageCarousel.querySelectorAll("iframe");
-
-        iframes.forEach((iframe) => {
-            iframe.addEventListener("ended", () => {
-                this.imageCarouselControl.next();
-            });
         });
     }
 };

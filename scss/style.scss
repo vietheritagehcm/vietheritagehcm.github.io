@@ -446,6 +446,15 @@ section#post {
             aspect-ratio: 16/9;
         }
     }
+    button>span {
+        background: var(--bs-secondary);
+        aspect-ratio: 1/1;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
 
     @include medium_devices() {
         display: flex;
@@ -456,7 +465,6 @@ section#post {
             max-height: unset;
             overflow: unset;
             display: -webkit-box;
-            
         }
     }
 }

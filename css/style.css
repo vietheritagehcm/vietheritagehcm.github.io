@@ -12265,6 +12265,15 @@ section#post #heritage a {
 .post-page #image-carousel img {
   aspect-ratio: 16/9;
 }
+.post-page button > span {
+  background: var(--bs-secondary);
+  aspect-ratio: 1/1;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
 @media (max-width: 991.98px) {
   .post-page {
     display: flex;
